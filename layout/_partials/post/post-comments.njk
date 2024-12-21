@@ -1,0 +1,25 @@
+
+{%- if not post.comments %}
+  <h1> 作者设置本文禁止评论 </h1>
+{%- else %}
+  <div class="post-comment" >
+    <h1> 评论区 </h1>
+    <p id="post-comment-loading">
+    加载中（若失败请尝试<b><a href="https://flask-ioz-wzeivghcie.cn-hangzhou.fcapp.run/get/{{post.id}}" target="_blank">手动访问</a></b>）
+    </p>
+
+{{- next_js('post-comment.js') }}
+<script>
+  enable_ob('/comment/get/', {{post.id}})
+</script>
+
+    <div>
+      <p>评论审核后可见，仅公开昵称，不公开邮箱，邮箱仅用于审核通过通知，可不填写</p>
+      昵称：<input id="new-post-author">    邮箱：<input id="new-post-email" value="noreply">
+      <br/>
+      <textarea class="post-comment-textarea" id="new-post-content"></textarea>
+      <br/>
+      <input class="btn" type="button" value="提交" onclick='new_post("/comment/put/", {{post.id}});'>
+    </div>
+  </div>
+{%- endif %}
