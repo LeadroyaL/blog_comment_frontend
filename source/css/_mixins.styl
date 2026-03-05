@@ -63,7 +63,7 @@ sidebar() {
 }
 
 random-color($min, $max) {
-  return floor(math(0, 'random') * ($max - $min + 1) + $min);
+  return ($min + $max) / 2;
 }
 
 word-wrap() {
