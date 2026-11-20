@@ -18,7 +18,7 @@ function fetch_comments(path, post_id) {
     // path unused
     ob.unobserve(ob.ele);
     ob.disconnect();
-    const url = "https://flask-ioz-wzeivghcie.cn-hangzhou.fcapp.run/get/" + post_id;
+    const url = "https://comment.leadroyal.cn/get/" + post_id;
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
@@ -87,7 +87,7 @@ function new_post(path, post_id) {
         alert("评论内容为空");
         return;
     }
-    const url = "https://flask-ioz-wzeivghcie.cn-hangzhou.fcapp.run/put/" + post_id;
+    const url = "https://comment.leadroyal.cn/put/" + post_id;
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
